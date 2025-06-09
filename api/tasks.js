@@ -25,8 +25,7 @@ router.get("/", async (req, res, next) => {
     const tasks = await getTasksByUserId(req.user.id);
     res.send(tasks);
   } catch (err) {
-    console.error("Error in GET /tasks:", err); // 👈 This logs the real error
-    next(err); // Keep this to send the 500 response
+    next(err);
   }
 });
 
